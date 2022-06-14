@@ -32,7 +32,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Descrição
 
-Este projeto consiste em criar uma api para buscar todos os alunos, buscar somente por Id, cpf, cadastra um aluno novo, deleta um aluno. Sua função a princípio é para fins didáticos com o intuito de aprimorar na linguagem Golang, aprender a trabalhar com Gin, com Banco de dados Postgres utilizando Docker.
+Este projeto consiste em criar uma api para buscar todos os alunos, buscar somente por Id, cpf, cadastra um aluno novo, deleta um aluno e editar um aluno.
+
+Sua função a princípio é para fins didáticos com o intuito de aprimorar na linguagem Golang, aprender a trabalhar com Gin, com Banco de dados Postgres utilizando Docker.
 
 <p align="center">
   <img alt="Golang" src="https://github.com/lucio-iot-dev/api-go-rest/blob/main/Foto-readme/Golang-Docker.png" width="30%">
