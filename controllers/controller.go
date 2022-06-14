@@ -34,20 +34,20 @@ func CriaNovoAluno(c *gin.Context) {
 }
 
 func BuscaAlunoPorID(c *gin.Context) {
-  var aluno models.Aluno
+	var aluno models.Aluno
 	id := c.Params.ByName("id")
 	database.DB.First(&aluno, id)
 
-  if aluno.ID == 0 {
+	if aluno.ID == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
-			"Not found": "Aluno não encontrado",})
-			return
-		}
-			c.JSON(http.StatusOK, aluno)
+			"Not found": "Aluno não encontrado"})
+		return
 	}
+	c.JSON(http.StatusOK, aluno)
+}
 
 func DeletaAluno(c *gin.Context) {
-  var aluno models.Aluno
+	var aluno models.Aluno
 	id := c.Params.ByName("id")
 	database.DB.Delete(&aluno, id)
 }
@@ -55,13 +55,30 @@ func DeletaAluno(c *gin.Context) {
 func BuscaAlunoPorCPF(c *gin.Context) {
 	var aluno models.Aluno
 	cpf := c.Param("cpf")
-	database.DB.Where(&models.Aluno{CPF:cpf}).First(&aluno)
+	database.DB.Where(&models.Aluno{CPF: cpf}).First(&aluno)
 
 	if aluno.ID == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
-			"Not found": "Aluno não encontrado",})
-			return
-		}
+			"Not found": "Aluno não encontrado"})
+		return
+	}
 
-		c.JSON(http.StatusOK, aluno)
+	c.JSON(http.StatusOK, aluno)
 }
+
+func AtualizaAluno(c *gin.Context) {
+	var aluno models.Aluno
+
+	id := c.Params.ByName("id")
+	database.DB.First(&aluno, id)
+
+	if err := c.ShouldBindJSON(&aluno); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error()})
+		return
+	}
+
+	database.DB.Updates(&aluno)
+	c.JSON(http.StatusOK, aluno)
+}
+
