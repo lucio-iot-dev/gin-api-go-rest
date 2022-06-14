@@ -40,7 +40,7 @@ Este projeto consiste em criar uma api para buscar todos os alunos, buscar somen
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/lucio-iot-dev/api-go-rest/blob/main/LICENSE) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/lucio-iot-dev/gin-api-go-rest/blob/main/LICENSE) para mais detalhes.
 
 
 Dev: Lúcio do Nascimento.
